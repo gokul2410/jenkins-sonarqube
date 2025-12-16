@@ -7,21 +7,13 @@ pipeline {
 
     stages {
 
-        stage('Checkout') {
+        stage('Install & Test') {
             steps {
-                checkout scm
-            }
-        }
-
-      stage('Install & Test') {
-    steps {
-        sh '''
-        set -e
-        pip3 install --break-system-packages -r requirements.txt
-        python3 -m pytest
-        '''
-    }
-}
+                sh '''
+                set -e
+                pip3 install --break-system-packages -r requirements.txt
+                python3 -m pytest
+                '''
             }
         }
 
