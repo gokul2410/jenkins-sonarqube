@@ -7,10 +7,10 @@ pipeline {
 
     stages {
 
-        stage('Build & Test') {
+        stage('Install & Test') {
             steps {
                 sh '''
-                pip install -r requirements.txt
+                pip3 install --break-system-packages -r requirements.txt
                 pytest
                 '''
             }
