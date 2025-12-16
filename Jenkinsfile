@@ -7,11 +7,17 @@ pipeline {
 
     stages {
 
+        stage('Checkout') {
+            steps {
+                checkout scm
+            }
+        }
+
         stage('Install & Test') {
             steps {
                 sh '''
                 pip3 install --break-system-packages -r requirements.txt
-                pytest
+                python3 -m pytest
                 '''
             }
         }
