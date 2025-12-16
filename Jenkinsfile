@@ -2,7 +2,7 @@ pipeline {
     agent any
 
     environment {
-        DOCKER_IMAGE = "dockerhubusername/python-ci-cd"
+        DOCKER_IMAGE = "YOUR_DOCKERHUB_USERNAME/python-ci-cd"
     }
 
     stages {
@@ -10,7 +10,6 @@ pipeline {
         stage('Install & Test') {
             steps {
                 sh '''
-                set -e
                 pip3 install --break-system-packages -r requirements.txt
                 python3 -m pytest
                 '''
