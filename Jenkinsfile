@@ -17,15 +17,19 @@ pipeline {
             }
         }
 
-        stage('SonarQube Analysis') {
-            steps {
-                withSonarQubeEnv('sonarqube') {
-                    sh '''
-                    sonar-scanner \
-                    -Dsonar.projectKey=python-ci-cd \
-                    -Dsonar.sources=. \
-                    -Dsonar.python.version=3
-                    '''
+   stage('SonarQube Analysis') {
+    steps {
+        withSonarQubeEnv('sonarqube') {
+            sh '''
+            ${SONAR_SCANNER_HOME}/bin/sonar-scanner \
+            -Dsonar.projectKey=python-ci-cd \
+            -Dsonar.sources=. \
+            -Dsonar.python.version=3
+            '''
+        }
+    }
+}
+
                 }
             }
         }
