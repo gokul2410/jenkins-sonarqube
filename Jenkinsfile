@@ -1,9 +1,10 @@
 pipeline {
     agent any
 
-    environment {
-        DOCKER_IMAGE = DOCKER_IMAGE = "gokul2410/python-ci-cd" 
-    }
+  environment {
+    DOCKER_IMAGE = "gokul2410/python-ci-cd"
+}
+
 
     stages {
 
