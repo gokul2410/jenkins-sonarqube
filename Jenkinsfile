@@ -13,12 +13,15 @@ pipeline {
             }
         }
 
-        stage('Install & Test') {
-            steps {
-                sh '''
-                pip3 install --break-system-packages -r requirements.txt
-                python3 -m pytest
-                '''
+      stage('Install & Test') {
+    steps {
+        sh '''
+        set -e
+        pip3 install --break-system-packages -r requirements.txt
+        python3 -m pytest
+        '''
+    }
+}
             }
         }
 
